@@ -2,20 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-bg: #0a0a0a;
+  --color-text: #f5f5f5;
+  --color-accent: #ff3300;
+  --color-secondary: #00ff41; /* Terminal green */
+  --font-mono: 'IBM Plex Mono', 'Space Mono', monospace;
+  --glitch-speed: 0.2s;
+}
+
 @layer base {
-  :root {
-    /* The Agent should overwrite these HSL values based on the Visual Manifesto */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --accent: 240 4.8% 95.9%;
-    --border: 240 5.9% 90%;
-    --radius: 0.5rem;
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
   }
 }
 
-body {
-  @apply bg-background text-foreground antialiased;
-  font-feature-settings: "rlig" 1, "calt" 1;
+@layer components {
+  .brutalist-border {
+    @apply border border-text/20 hover:border-accent transition-colors duration-300;
+  }
+  
+  .glitch-text {
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                 -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                 0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+  }
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                 -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                 -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                 -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                 -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                 0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                 -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                 0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                 -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                 0.05em 0 0 rgba(0, 255, 0, 0.75),
+                 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                 0.05em 0 0 rgba(0, 255, 0, 0.75),
+                 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                 -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                 -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
 }
