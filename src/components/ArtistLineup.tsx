@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Activity, Zap, Radio, Target } from 'lucide-react';
-import { Reveal } from '@/components/motion/Reveal';
+import Reveal from '@/components/motion/Reveal';
 
 const ARTISTS = [
   {
@@ -8,42 +8,42 @@ const ARTISTS = [
     genre: "POWER NOISE / DECONSTRUCTED",
     origin: "BERLIN_SUB_01",
     specs: "145 BPM | ANALOG_MODULAR",
-    image: "<span className="block"><img src="https://images.pexels.com/photos/11558377/pexels-photo-11558377.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Vibrant glitch art featuring a visually striking eye in an abstract style." loading="lazy" /><a href="https://www.pexels.com/photo/colourful-abstract-illustration-11558377/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Alexey Demidov on Pexels</a></span>"
+    image: "https://images.pexels.com/photos/11558377/pexels-photo-11558377.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   },
   {
     name: "VOID_WALKER",
     genre: "EXPERIMENTAL DARK AMBIENT",
     origin: "TOKYO_DIST_9",
     specs: "0 BPM | GRANULAR_SYNTHESIS",
-    image: "<span className="block"><img src="https://images.pexels.com/photos/8129160/pexels-photo-8129160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Monochrome abstract portrait with ghostly elements, creating a haunting effect." loading="lazy" /><a href="https://www.pexels.com/photo/spooky-composite-of-a-human-face-8129160/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Mariana Montrazi on Pexels</a></span>"
+    image: "https://images.pexels.com/photos/8129160/pexels-photo-8129160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   },
   {
     name: "SIGNAL_LOSS",
     genre: "GLITCH CORE / BREAKCORE",
     origin: "LONDON_VOID",
     specs: "220 BPM | HARDWARE_HACK",
-    image: "<span className="block"><img src="https://images.pexels.com/photos/25526512/pexels-photo-25526512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Studio setup with softboxes, strobe lights, and tripods for photography lighting." loading="lazy" /><a href="https://www.pexels.com/photo/photography-studio-lighting-equipment-25526512/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Alpha En on Pexels</a></span>"
+    image: "https://images.pexels.com/photos/25526512/pexels-photo-25526512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   },
   {
     name: "CRYPTIC_FREQ",
     genre: "INDUSTRIAL TECHNO",
     origin: "DETROIT_SECTOR_C",
     specs: "132 BPM | DISTORTED_KICK",
-    image: "<span className="block"><img src="https://images.pexels.com/photos/20547072/pexels-photo-20547072.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Three red construction cranes stand tall against a clear light purple sky, symbolizing industrial might." loading="lazy" /><a href="https://www.pexels.com/photo/minimal-photography-20547072/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Art by Andia on Pexels</a></span>"
+    image: "https://images.pexels.com/photos/20547072/pexels-photo-20547072.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   },
   {
     name: "KINETIC_NOISE",
     genre: "AVANT-GARDE PERCUSSION",
     origin: "NYC_STATION_X",
     specs: "VAR BPM | METAL_CONTACT",
-    image: "<span className="block"><img src="https://images.pexels.com/photos/29080649/pexels-photo-29080649.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Artistic abstract image of a woman in motion with colorful blur effect." loading="lazy" /><a href="https://www.pexels.com/photo/abstract-blurred-portrait-of-a-woman-in-motion-29080649/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Ayşe İpek on Pexels</a></span>"
+    image: "https://images.pexels.com/photos/29080649/pexels-photo-29080649.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   },
   {
     name: "PROTOCOL_7",
     genre: "CYBERNETIC HARDCORE",
     origin: "SEOUL_DATA_HUB",
     specs: "180 BPM | NEURAL_LINK",
-    image: "<span className="block"><img src="https://images.pexels.com/photos/4389372/pexels-photo-4389372.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Innovative portrait of a person with blonde hair and binary code overlay. Digital art effect with triple exposure." loading="lazy" /><a href="https://www.pexels.com/photo/artistic-portrait-of-a-man-4389372/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Darlene Alderson on Pexels</a></span>"
+    image: "https://images.pexels.com/photos/4389372/pexels-photo-4389372.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   }
 ];
 

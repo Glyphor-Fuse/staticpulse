@@ -30,7 +30,7 @@ const Lineup = () => {
             {/* Hover Image Reveal */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
                <img 
-                src={`<span className="block"><img src="https://images.pexels.com/photos/11356525/pexels-photo-11356525.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Talented musician playing electric guitar on a black background, showcasing musical passion." loading="lazy" /><a href="https://www.pexels.com/photo/a-man-in-black-polo-playing-guitar-11356525/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Tom de Monteiller on Pexels</a></span>`} 
+                src="https://images.pexels.com/photos/11356525/pexels-photo-11356525.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
                 alt={artist.name} 
                 className="w-full h-full object-cover grayscale"
               />

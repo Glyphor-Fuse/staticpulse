@@ -13,7 +13,7 @@ const GlitchHero = () => {
       {/* Background Chaos Layer */}
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none">
         <img 
-          src="<span className="block"><img src="https://images.pexels.com/photos/10929789/pexels-photo-10929789.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Abstract image capturing light leaks and textures from the end of a film roll." loading="lazy" /><a href="https://www.pexels.com/photo/white-and-blue-abstract-film-photo-10929789/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Zsófia Fehér on Pexels</a></span>" 
+          src="https://images.pexels.com/photos/10929789/pexels-photo-10929789.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
           alt="texture" 
           className="w-full h-full object-cover grayscale invert"
         />

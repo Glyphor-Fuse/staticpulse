@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Zap, Radio, Activity } from 'lucide-react';
+import { X, Zap, Radio, Activity } from 'lucide-react';
 
 const NAV_LINKS = [
   { name: 'TICKETS_RESERVE', href: '#tickets' },

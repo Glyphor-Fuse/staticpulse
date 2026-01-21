@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-bg via-transparent to-bg z-10"></div>
         <img 
-          src="<span className="block"><img src="https://images.pexels.com/photos/9817422/pexels-photo-9817422.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Colorful abstract art featuring vibrant digital ripples and glitch effects." loading="lazy" /><a href="https://www.pexels.com/photo/collage-of-colorful-film-photos-of-water-9817422/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-400 block mt-0.5">Photo by Alexey Demidov on Pexels</a></span>" 
+          src="https://images.pexels.com/photos/9817422/pexels-photo-9817422.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
           alt="Glitch Background" 
           className="w-full h-full object-cover opacity-30 grayscale contrast-150"
         />
