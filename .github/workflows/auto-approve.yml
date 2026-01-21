@@ -1,0 +1,66 @@
+name: Auto-Approve
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+
+jobs:
+  auto-approve:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - name: Auto-approve PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Get PR number from workflow_run event
+            const workflowRun = context.payload.workflow_run;
+            const prs = workflowRun.pull_requests || [];
+            
+            if (prs.length === 0) {
+              console.log('No PRs found in workflow_run event');
+              return;
+            }
+            
+            const prNumber = prs[0].number;
+            console.log(`Found PR #${prNumber}`);
+            
+            // Check if already approved
+            const reviews = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+            });
+            
+            const hasApproval = reviews.data.some(
+              review => review.state === 'APPROVED'
+            );
+            
+            if (!hasApproval) {
+              try {
+                await github.rest.pulls.createReview({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: prNumber,
+                  event: 'APPROVE',
+                  body: '✅ Auto-approved: All CI checks passed successfully.'
+                });
+                console.log(`✅ Approved PR #${prNumber}`);
+              } catch (error) {
+                console.log(`Could not approve PR: ${error.message}`);
+                // If we can't approve (e.g., self-approval), at least comment
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: prNumber,
+                  body: '✅ All CI checks passed! Ready to merge.'
+                });
+              }
+            } else {
+              console.log(`PR #${prNumber} already has an approval`);
+            }

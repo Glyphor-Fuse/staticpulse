@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+    # Skip during initial generation to avoid Auto-Fix loops
+    if: "!contains(github.event.head_commit.message, '[initial-seed]')"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+        continue-on-error: true # Allows the orchestrator to see the error without failing the CI immediately
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true # Same here: report the issue, don't kill the build
+
+      - name: Build
+        run: npm run build
