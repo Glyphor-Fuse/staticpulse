@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Radio, Activity } from 'lucide-react';
+import { Terminal, Activity } from 'lucide-react';
 
 const Hero = () => {
   return (
